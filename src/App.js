@@ -1,13 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import ProgressTimer from './ProgressTimer';
+
+
 
 function App() {
+
+  //const timer = ProgressTimer(85, "teal")
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+          <ProgressTimer></ProgressTimer>
+
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Basic bitch PWA, eh?
         </p>
         <a
           className="App-link"
