@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <ProgressTimer></ProgressTimer>
+          <ProgressTimer percentage={85} colour={"teal"}></ProgressTimer>
 
         <p>
           Basic bitch PWA, eh?

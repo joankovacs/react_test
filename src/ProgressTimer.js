@@ -6,15 +6,15 @@ import React from "react";
 
 
 
-const ProgressTimer = ( percentage=85, colour="teal" ) => {
+const ProgressTimer = ( {percentage, colour} ) => {
 
-    const cleanPercentage = (percentage) => {
+    const cleanPercentage = ({percentage}) => {
         const isNegativeOrNaN = !Number.isFinite(+percentage) || percentage < 0; // we can set non-numbers to 0 here
         const isTooHigh = percentage > 100;
         return isNegativeOrNaN ? 0 : isTooHigh ? 100 : +percentage;
     };
 
-    const Circle = ( colour, percentage ) => {
+    const Circle = ( {colour, percentage} ) => {
         const r = 70;
         const circ = 2 * Math.PI * r;
         const strokePct = ((100 - percentage) * circ) / 100; // where stroke will start, e.g. from 15% to 100%.
@@ -28,12 +28,12 @@ const ProgressTimer = ( percentage=85, colour="teal" ) => {
             strokeWidth={"2.5rem"}
             strokeDasharray={circ}
             strokeDashoffset={percentage ? strokePct : 0}
-            stroke-linecap="round"
+            //strokeLinecap="round"
             ></circle>
         );
     };
 
-    const Text = ( percentage ) => {
+    const Text = ( {percentage} ) => {
         return (
             <text
             x="50%"
@@ -47,7 +47,7 @@ const ProgressTimer = ( percentage=85, colour="teal" ) => {
         );
     };
 
-    const pct = cleanPercentage(percentage);
+    const pct = cleanPercentage({percentage});
     return (
         <svg width={200} height={200}>
         <g transform={`rotate(-90 ${"100 100"})`}>
